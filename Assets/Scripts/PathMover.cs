@@ -4,7 +4,9 @@ using UnityEngine;
 using Cinemachine;
 public class PathMover : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 0f;
+
+    public float maxSpeed = 5f;
 
     public float m_Position;
 
@@ -35,16 +37,21 @@ public class PathMover : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                puthLVL = m_Position + speed * Time.deltaTime * 5f;
-
-                SetCartPosition(puthLVL);
-
-                //TextScaler.Singleton.gameObject.SetActive(false);
+                speed = Mathf.Lerp(speed, maxSpeed, Time.deltaTime * 0.2f);
             }
+            else
+            {
+                speed = Mathf.Lerp(speed, 0f, Time.deltaTime * 0.5f);
+            }
+
+            puthLVL = m_Position + speed * Time.deltaTime;
+
+            SetCartPosition(puthLVL);
+
         }
-
-
     }
+
+
 
     void SetCartPosition(float distanceAlongPath)
     {
