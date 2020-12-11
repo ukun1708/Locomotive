@@ -37,11 +37,11 @@ public class PathMover : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                speed = Mathf.Lerp(speed, maxSpeed, Time.deltaTime * 0.2f);
+                speed = Mathf.Lerp(speed, maxSpeed, Time.deltaTime * 0.1f);
             }
             else
             {
-                speed = Mathf.Lerp(speed, 0f, Time.deltaTime * 0.5f);
+                speed = Mathf.Lerp(speed, 0f, Time.deltaTime * 0.4f);
             }
 
             puthLVL = m_Position + speed * Time.deltaTime;
