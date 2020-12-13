@@ -32,7 +32,6 @@ public class PathMover : MonoBehaviour
 
     void Update()
     {
-
         if (play == true)
         {
             if (Input.GetMouseButton(0))
@@ -47,8 +46,16 @@ public class PathMover : MonoBehaviour
             puthLVL = m_Position + speed * Time.deltaTime;
 
             SetCartPosition(puthLVL);
-
         }
+        else
+        {
+            speed = Mathf.Lerp(speed, 0f, Time.deltaTime * 0.4f);
+
+            puthLVL = m_Position + speed * Time.deltaTime;
+
+            SetCartPosition(puthLVL);
+        }
+        
     }
 
 

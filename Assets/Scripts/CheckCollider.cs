@@ -9,6 +9,8 @@ public class CheckCollider : MonoBehaviour
 
     public Text cargoCount;
 
+    public Text winCargoCount;
+
     int count = 0;
 
     public bool trainInStation = false;
@@ -58,6 +60,7 @@ public class CheckCollider : MonoBehaviour
     {
         count += 1;
         cargoCount.text = count.ToString();
+        winCargoCount.text = count.ToString();
 
         CollectCargoButton.SetActive(false);
 
